@@ -1,0 +1,56 @@
+.add-block{
+  border-right: 1px solid #e3e3e3;
+}
+
+.form-wrapper form {
+	.add-block,
+	.remove-block {
+	  border-radius: 0px;
+	}
+	.remove-block {
+    position: absolute;
+	  z-index: 5656;
+    right: 10px;
+    top: 10px;
+		height: 15px;
+    width: 15px;
+	}
+}
+
+.abeform-wrapper {
+	height: 100%;
+	position: relative;
+	> form {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: auto;
+		position: absolute;
+	}
+}
+
+.btn {
+	.glyphicon-chevron-down {
+	  transform: rotate(-180deg);
+	}
+
+	&.collapsed {
+		.glyphicon-chevron-down {
+		  transform: rotate(0deg);
+		}
+	}
+}
+
+.glyphicon-upload {
+    color: #8E8E8E;
+}
+
+[data-block]{
+	position: relative;
+	.glyphicon-trash{
+    position: absolute;
+    right: 0;
+    top: 0;
+	}
+}

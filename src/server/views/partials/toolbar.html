@@ -1,0 +1,16 @@
+{{#each @root.workflows}}
+  {{#isAuthorized this.url @root.user.role.workflow}}
+    <button class='btn btn-info btn-save' data-action="{{this.status}}" data-url="{{this.url}}">
+      <span class="before">
+        {{this.status}}
+      </span>
+      <span class="loading">
+        {{@root.text.saving}}
+      </span>
+      <span class="after">
+        {{@root.text.done}}
+      </span>
+    </button>
+  {{else}}
+  {{/isAuthorized}}
+{{/each}}

@@ -1,0 +1,8 @@
+src/
+test/
+plugins/
+.travis.yml
+.eslintrc.json
+.eslintignore
+abe.json
+selenium-debug.log

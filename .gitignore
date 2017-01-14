@@ -1,0 +1,31 @@
+node_modules/*
+npm-debug.log
+selenium-debug.log
+tasks/node_modules/*
+tasks/json/*
+tasks/npm-debug.log
+draft/
+*.sublime-project
+*.sublime-workspace
+
+# admin compiled
+src/server/public/abejs/scripts/*-compiled.js
+src/server/public/abejs/css/styles.css
+
+# Local configs
+cli/config/*-local.js
+
+# debug
+abe-logs/*
+
+# test-coverage
+coverage/*
+test/templates/hbs/*
+tests/demo/data/autocomplete*
+
+# dist
+dist
+
+#config
+abe.json
+plugins/
