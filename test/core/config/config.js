@@ -1,8 +1,8 @@
 var chai = require('chai');
 var path = require('path');
 
-var config = require('../src/cli').config
-config.set({root: path.join(__dirname,'fixtures')})
+var config = require('../../../src/cli').config
+config.set({root: path.join(process.cwd(),'test','fixtures')})
 
 describe('Config', function() {
   /**
