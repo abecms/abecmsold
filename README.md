@@ -2,17 +2,17 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/dv6yt84497wseuxc?svg=true)](https://ci.appveyor.com/project/gregorybesson/abecms)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/abecms/abecms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abecms/abecms/)
 [![Coverage Status](https://coveralls.io/repos/github/abecms/abecms/badge.svg?branch=master)](https://coveralls.io/github/abecms/abecms?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c)
+[![Dependency Status](https://www.versioneye.com/user/projects/587a81915450ea0034dffa93/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c)
 [![Inline docs](http://inch-ci.org/github/abecms/abecms.svg?branch=master)](http://inch-ci.org/github/abecms/abecms)
-[![Latest Stable Version](https://img.shields.io/npm/v/abe-cli.svg)](https://www.npmjs.com/package/abe-cli)
-[![Total Downloads](https://img.shields.io/npm/dt/abe-cli.svg)](https://www.npmjs.com/package/abe-cli)
+[![Latest Stable Version](https://img.shields.io/npm/v/abecms.svg)](https://www.npmjs.com/package/abe-cli)
+[![Total Downloads](https://img.shields.io/npm/dt/abecms.svg)](https://www.npmjs.com/package/abe-cli)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/abecms/abecms/master/LICENSE)
 # Abe, A better engine
 
 > Abe is your __static websites generator__ with revolutionnary __self-descriptive__ templates
 
-[![NPM](https://nodei.co/npm/abe-cli.png?downloads=true&downloadRank=true)](https://nodei.co/npm/abe-cli/)
-[![NPM](https://nodei.co/npm-dl/abe-cli.png?months=3&height=3)](https://nodei.co/npm/abe-cli/)
+[![NPM](https://nodei.co/npm/abecms.png?downloads=true&downloadRank=true)](https://nodei.co/npm/abecms/)
+[![NPM](https://nodei.co/npm-dl/abecms.png?months=3&height=3)](https://nodei.co/npm/abecms/)
 
 # Demo
 Deploy your own Abe demo on Heroku
