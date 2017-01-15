@@ -20,6 +20,7 @@ var loadLocalConfig = (result) => {
     try{
       var stat = fse.statSync(result.root)
       if (stat && stat.isDirectory()) {
+        console.log(path.join(result.root,'abe.json'))
         try{
           stat = fse.statSync(path.join(result.root,'abe.json'))
           if (stat) {
@@ -31,6 +32,7 @@ var loadLocalConfig = (result) => {
           }
         }catch(e) {
           console.log('---------ERROR---------')
+          console.log(e)
           if (!hintAbeJson) {
             hintAbeJson = true
             console.log(
