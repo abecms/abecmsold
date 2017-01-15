@@ -14,25 +14,17 @@ if(process.env.ROOT) {
 var hintAbeJson = false
 
 var loadLocalConfig = (result) => {
-  console.log('---------loadLocalConfig---------')
   if(result.root !==''){
-    console.log(result.root)
     try{
       var stat = fse.statSync(result.root)
       if (stat && stat.isDirectory()) {
-        console.log(path.join(result.root,'abe.json'))
         try{
           stat = fse.statSync(path.join(result.root,'abe.json'))
           if (stat) {
-            console.log('json found')
             var json = fse.readJsonSync(path.join(result.root,'abe.json'))
             result = extend(true, result, json)
-            console.log(result)
-            console.log('---------loadLocalConfig---------')
           }
         }catch(e) {
-          console.log('---------ERROR---------')
-          console.log(e)
           if (!hintAbeJson) {
             hintAbeJson = true
             console.log(
@@ -112,9 +104,6 @@ result.get = (conf) => {
 
 result.set = (json) => {
   extend(true, result, json)
-  console.log('---------result.set---------')
-console.log(result)
-console.log('---------result.set---------')
   loadLocalConfig(result)
 }
 
