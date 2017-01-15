@@ -2,7 +2,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/dv6yt84497wseuxc?svg=true)](https://ci.appveyor.com/project/gregorybesson/abecms)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/abecms/abecms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/abecms/abecms/)
 [![Coverage Status](https://coveralls.io/repos/github/abecms/abecms/badge.svg?branch=master)](https://coveralls.io/github/abecms/abecms?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c)
+[![Dependency Status](https://www.versioneye.com/user/projects/587a81915450ea0034dffa93/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57ea4badbd6fa600316f9f6c)
 [![Inline docs](http://inch-ci.org/github/abecms/abecms.svg?branch=master)](http://inch-ci.org/github/abecms/abecms)
 [![Latest Stable Version](https://img.shields.io/npm/v/abecms.svg)](https://www.npmjs.com/package/abe-cli)
 [![Total Downloads](https://img.shields.io/npm/dt/abecms.svg)](https://www.npmjs.com/package/abe-cli)
