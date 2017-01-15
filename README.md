@@ -11,8 +11,8 @@
 
 > Abe is your __static websites generator__ with revolutionnary __self-descriptive__ templates
 
-[![NPM](https://nodei.co/npm/abe-cli.png?downloads=true&downloadRank=true)](https://nodei.co/npm/abe-cli/)
-[![NPM](https://nodei.co/npm-dl/abe-cli.png?months=3&height=3)](https://nodei.co/npm/abe-cli/)
+[![NPM](https://nodei.co/npm/abecms.png?downloads=true&downloadRank=true)](https://nodei.co/npm/abecms/)
+[![NPM](https://nodei.co/npm-dl/abecms.png?months=3&height=3)](https://nodei.co/npm/abecms/)
 
 # Demo
 Deploy your own Abe demo on Heroku
