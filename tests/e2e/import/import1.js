@@ -50,7 +50,7 @@ describe('Abe', function() {
         .url('http://localhost:3003/abe/editor/import.html')
         .waitForElementVisible('//body')
         .pause(2000)
-        .frame(0)
+        .frame('page-template')
         .expect.element("//*[@id='fh5co-logo']/a").text.to.contain('Abe demo fr');
     });
     
