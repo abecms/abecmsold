@@ -70,18 +70,8 @@ export function includePartials(text, json) {
     var file = obj.file
     var partial = ''
     file = path.join(config.root, config.partials, file)
+    file = cmsData.attributes.getValueFromAttribute(file, json)
 
-    if (file.indexOf('{{') > -1) {
-      var keys = sourceAttr.getKeys(file)
-      Array.prototype.forEach.call(keys, (key) => {
-        try {
-          var toEval = `${key.replace(/(\[|\.|\])/g, '\\$1')}`
-          file = file.replace(new RegExp(`\{\{${toEval}\}\}`, 'g'), eval(`json.${key}`))
-        }catch(e) {
-        }
-      })
-    }
-    
     if(coreUtils.file.exist(file)) {
       partial = cmsTemplates.template.includePartials(fse.readFileSync(file, 'utf8'), json)
     }

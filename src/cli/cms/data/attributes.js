@@ -1,7 +1,7 @@
 import {
   abeExtend
 } from '../../'
-
+import * as sourceAttr from '../../cms/editor/handlebars/sourceAttr'
 /**
 * Get All attributes from a Abe tag
 * @return {Object} parsed attributes
@@ -71,4 +71,40 @@ export function sanitizeSourceAttribute(obj, jsonPage){
   }
 
   return obj
+}
+
+/**
+ * This function will take the value of an Abe attribute and analyze its content.
+ * If it contains a var {{variable.prop.value}}, it will extract its content with these rules
+ * element.[0].value
+ * element[0].value
+ * element.0.value
+ * will all be transformed into element[0].value and evaluated with the json
+ * @param  {String} value 
+ * @return {String}       
+ */
+export function getValueFromAttribute(value, json){
+  if (value.indexOf('{{') > -1) {
+      var keys = sourceAttr.getKeys(value)
+      Array.prototype.forEach.call(keys, (key) => {
+        var toEval = `${key.replace(/(\[|\.|\])/g, '\\$1')}`
+        var properties = key.split('.')
+        Array.prototype.forEach.call(properties, (prop, index) => {
+          if (prop.indexOf('[') == 0 && index > 0) {
+            properties[index - 1] += prop
+            properties.splice(index, 1);
+          } else if(/^\d+$/.test(prop) && index > 0){
+            properties[index - 1] += '[' + prop + ']'
+            properties.splice(index, 1);
+          }
+        })
+        key = properties.join('.')
+        try {
+          value = value.replace(new RegExp(`\{\{${toEval}\}\}`, 'g'), eval(`json.${key}`))
+        }catch(e) {
+        }
+      })
+    }
+
+    return value
 }
