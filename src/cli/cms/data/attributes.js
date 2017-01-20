@@ -85,26 +85,26 @@ export function sanitizeSourceAttribute(obj, jsonPage){
  */
 export function getValueFromAttribute(value, json){
   if (value.indexOf('{{') > -1) {
-      var keys = sourceAttr.getKeys(value)
-      Array.prototype.forEach.call(keys, (key) => {
-        var toEval = `${key.replace(/(\[|\.|\])/g, '\\$1')}`
-        var properties = key.split('.')
-        Array.prototype.forEach.call(properties, (prop, index) => {
-          if (prop.indexOf('[') == 0 && index > 0) {
-            properties[index - 1] += prop
-            properties.splice(index, 1);
-          } else if(/^\d+$/.test(prop) && index > 0){
-            properties[index - 1] += '[' + prop + ']'
-            properties.splice(index, 1);
-          }
-        })
-        key = properties.join('.')
-        try {
-          value = value.replace(new RegExp(`\{\{${toEval}\}\}`, 'g'), eval(`json.${key}`))
-        }catch(e) {
+    var keys = sourceAttr.getKeys(value)
+    Array.prototype.forEach.call(keys, (key) => {
+      var toEval = `${key.replace(/(\[|\.|\])/g, '\\$1')}`
+      var properties = key.split('.')
+      Array.prototype.forEach.call(properties, (prop, index) => {
+        if (prop.indexOf('[') == 0 && index > 0) {
+          properties[index - 1] += prop
+          properties.splice(index, 1)
+        } else if(/^\d+$/.test(prop) && index > 0){
+          properties[index - 1] += '[' + prop + ']'
+          properties.splice(index, 1)
         }
       })
-    }
+      key = properties.join('.')
+      try {
+        value = value.replace(new RegExp(`\{\{${toEval}\}\}`, 'g'), eval(`json.${key}`))
+      }catch(e) {
+      }
+    })
+  }
 
-    return value
+  return value
 }
