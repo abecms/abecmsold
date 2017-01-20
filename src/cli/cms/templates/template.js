@@ -262,7 +262,10 @@ export function getAbeRequestWhereKeysFromTemplates(templatesList) {
     Array.prototype.forEach.call(templatesList, (file) => {
       whereKeys = whereKeys.concat(cmsTemplates.template.execRequestColumns(file.template))
     })
-    whereKeys = whereKeys.filter(function (item, pos) {return whereKeys.indexOf(item) == pos})
+    whereKeys = whereKeys.filter(function (item, pos) {
+      item = item.split('.')[0].split('[')[0]
+      return whereKeys.indexOf(item) == pos
+    })
     resolve(whereKeys)
   })
 
