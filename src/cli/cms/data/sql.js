@@ -487,21 +487,24 @@ export function getWhereValuesToCompare(where, jsonDoc, jsonOriginalDoc) {
 }
 
 export function isInStatementCorrect(values, isCorrect){
+  let hasPassedTest = false
   if( Object.prototype.toString.call(values.left) === '[object Array]' ) {
     Array.prototype.forEach.call(values.left, (left) => {
       Array.prototype.forEach.call(values.right, (right) => {
         if(left != null && left === right) {
-          isCorrect = !isCorrect
+          hasPassedTest = true
         }
       })
     })
   } else {
     Array.prototype.forEach.call(values.right, (right) => {
       if(values.left === right) {
-        isCorrect = !isCorrect
+        hasPassedTest = true
       }
     })
   }
+
+  if(hasPassedTest) isCorrect = !isCorrect
 
   return isCorrect
 }
