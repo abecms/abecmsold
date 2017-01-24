@@ -101,7 +101,6 @@ describe('Request', function() {
       request.columns,
       this.fixture.jsonHomepage
     )
-    console.log(res)
     chai.assert.equal(res[0].title, 'article', 'expected select to find article but found ' + res[0].title);
   });
   it('cmsData.sql.executeWhereClause() !=', function() {
@@ -273,6 +272,7 @@ describe('Request', function() {
     )
     chai.expect(res, '`fakekey.fakeAttribute` IN (`{{articles}}`').to.have.length(0);
   });
+
   it('cmsData.sql.executeWhereClause() NOT IN', function() {
     var request = cmsData.sql.handleSqlRequest('select title from ./ where `abe_meta.template` NOT IN (`homepage`,`test`)', {})
     var res = cmsData.sql.executeWhereClause(
