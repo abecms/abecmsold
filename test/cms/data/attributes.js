@@ -28,30 +28,36 @@ describe('attributes', function() {
 
   it('cmsData.values.removeDuplicate', function() {
     var newJson = cmsData.values.removeDuplicate(this.fixture.html, this.fixture.json)
-    chai.expect(newJson.title).to.be.undefined;
+    chai.expect(newJson.title).to.be.undefined
   });
 
   it('cmsData.attributes.getAll()', function(done) {
     var attributes = cmsData.attributes.getAll(this.fixture.tag, this.fixture.jsonArticle)
-    chai.expect(attributes.sourceString).to.contain('select');
+    chai.expect(attributes.sourceString).to.contain('select')
     done();
   });
 
   it('cmsData.attributes.getValueFromAttribute() element.[0].value', function(done) {
     var result = cmsData.attributes.getValueFromAttribute('{{articles.[0].abe_meta.template}}', this.fixture.jsonHomepage)
-    chai.expect(result).to.equal('article');
+    chai.expect(result).to.equal('article')
     done();
   });
 
   it('cmsData.attributes.getValueFromAttribute() element[0].value', function(done) {
     var result = cmsData.attributes.getValueFromAttribute('{{articles[0].abe_meta.template}}', this.fixture.jsonHomepage)
-    chai.expect(result).to.equal('article');
+    chai.expect(result).to.equal('article')
     done();
   });
 
   it('cmsData.attributes.getValueFromAttribute() element.0.value', function(done) {
     var result = cmsData.attributes.getValueFromAttribute('{{articles.0.abe_meta.template}}', this.fixture.jsonHomepage)
-    chai.expect(result).to.equal('article');
+    chai.expect(result).to.equal('article')
+    done();
+  });
+
+  it('cmsData.attributes.getValueFromAttribute() element[].value', function(done) {
+    var result = cmsData.attributes.getValueFromAttribute('{{articles[].abe_meta.template}}', this.fixture.jsonHomepage)
+    chai.expect(result).deep.equal([ 'article', 'other-article' ])
     done();
   });
 });

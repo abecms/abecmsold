@@ -61,6 +61,13 @@ export function getAbeImport(text) {
   return partials
 }
 
+/**
+ * it will include recurively each encountered type=import
+ * and proceed to a foreach when the file={{some[]}} is an array of values
+ * @param  {[type]} text [description]
+ * @param  {[type]} json [description]
+ * @return {[type]}      [description]
+ */
 export function includePartials(text, json) {
   var abeImports = cmsTemplates.template.getAbeImport(text)
 
@@ -72,8 +79,16 @@ export function includePartials(text, json) {
     file = path.join(config.root, config.partials, file)
     file = cmsData.attributes.getValueFromAttribute(file, json)
 
-    if(coreUtils.file.exist(file)) {
-      partial = cmsTemplates.template.includePartials(fse.readFileSync(file, 'utf8'), json)
+    if(Object.prototype.toString.call(file) === '[object Array]' ) {
+      Array.prototype.forEach.call(file, (f) => {
+        if(coreUtils.file.exist(f)) {
+          partial += cmsTemplates.template.includePartials(fse.readFileSync(f, 'utf8'), json)
+        }
+      })
+    } else {
+      if(coreUtils.file.exist(file)) {
+        partial = cmsTemplates.template.includePartials(fse.readFileSync(file, 'utf8'), json)
+      }
     }
     text = text.replace(cmsData.regex.escapeTextToRegex(abeImport, 'g'), partial)
   })
